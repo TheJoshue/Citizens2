@@ -89,13 +89,13 @@
                     <type>jar</type>
                     <scope>compile</scope>
                 </dependency>
-                <dependency>
+                <!--dependency>
                     <groupId>${project.groupId}</groupId>
                     <artifactId>citizens-v1_20_R4</artifactId>
                     <version>${project.version}</version>
                     <type>jar</type>
                     <scope>compile</scope>
-                </dependency>
+                </dependency-->
             </dependencies>
         </profile>
         <profile>
