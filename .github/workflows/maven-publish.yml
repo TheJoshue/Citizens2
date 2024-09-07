@@ -25,7 +25,7 @@ jobs:
           #Manually downloading or placing the CraftBukkit jars for 1.8.8/1.12.2/1.16.5 versions
           #wget https://cdn.getbukkit.org/spigot/spigot-1.16.5.jar -O ./main/libs/spigot-1.16.5-R0.1-SNAPSHOT.jar
           #wget https://download.getbukkit.org/spigot/spigot-1.20.6.jar -O ./main/libs/spigot-1.20.6-R0.1-SNAPSHOT.jar
-          wget https://media.w1ck3dworks.org/mc/server/spigot-1.21.1-R0.1-SNAPSHOT-bootstrap.jar -O ./main/libs/spigot-1.21.1-R0.1-SNAPSHOT.jar
+          wget https://media.w1ck3dworks.org/mc/server/libs/spigot-1.21.1-R0.1-SNAPSHOT-bootstrap.jar -O ./main/libs/spigot-1.21.1-R0.1-SNAPSHOT.jar
           wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./v1_8_R3/libs/craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
           wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.12.2.jar -O ./v1_12_R1/libs/craftbukkit-1.12.2-R0.1-SNAPSHOT.jar
           wget https://cdn.getbukkit.org/spigot/spigot-1.16.5.jar -O ./v1_16_R3/libs/spigot-1.16.5-R0.1-SNAPSHOT.jar
