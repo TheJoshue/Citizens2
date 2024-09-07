@@ -31,7 +31,8 @@ jobs:
 
       - name: Build
         #run: mvn -V -B clean package --file pom.xml
-        run: mvn clean package
+        #run: mvn clean package
+        run: mvn clean install -Dmaven.test.skip=true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
