@@ -11,9 +11,10 @@
     <artifactId>citizens-v1_16_R3</artifactId>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <craftbukkit.version>1.16.5</craftbukkit.version>
+        <craftbukkit.version>1.16.5-R0.1-SNAPSHOT</craftbukkit.version>
     </properties>
     <dependencies>
+        <!-- Citizens main dependency -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>citizens-main</artifactId>
@@ -21,12 +22,16 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Use local craftbukkit jar -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
             <version>${craftbukkit.version}</version>
-            <type>jar</type>
-            <scope>provided</scope>
+            <!--type>jar</type>
+            <scope>provided</scope-->
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/spigot-${craftbukkit.version}.jar</systemPath>
         </dependency>
     </dependencies>
     <build>
