@@ -1,5 +1,7 @@
 <!-- Citizens build file -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.citizensnpcs</groupId>
@@ -11,20 +13,25 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <craftbukkit.version>1.21.1-R0.1-SNAPSHOT</craftbukkit.version>
     </properties>
-
     <dependencies>
+        <!-- Citizens main dependency -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>citizens-main</artifactId>
             <version>${project.version}</version>
+            <!--type>jar</type--><!-- THIS WAS NOT EVEN THERE IN ORIGINAL STATE/OFFICIAL REPO -->
             <scope>provided</scope>
         </dependency>
+
+        <!-- Use local craftbukkit jar -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
             <version>${craftbukkit.version}</version>
             <classifier>remapped-mojang</classifier>
-            <scope>provided</scope>
+            <!--scope>provided</scope-->
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/spigot-${craftbukkit.version}-remapped-mojang.jar</systemPath>
         </dependency> 
     </dependencies>
     
