@@ -16,19 +16,13 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      # Download the CraftBukkit jar
-      - name: Download CraftBukkit jar
-        run: wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
-
-      # Manually install CraftBukkit into the local Maven repository
-      - name: Install CraftBukkit in local repo
+      - name: Create libs directory and add CraftBukkit jars
         run: |
-          mvn install:install-file \
-          -Dfile=./craftbukkit-1.8.8-R0.1-SNAPSHOT.jar \
-          -DgroupId=org.bukkit \
-          -DartifactId=craftbukkit \
-          -Dversion=1.8.8-R0.1-SNAPSHOT \
-          -Dpackaging=jar
+          mkdir -p v1_8_R3/libs
+          mkdir -p v1_12_R1/libs
+          # Manually downloading or placing the CraftBukkit jars for both 1.8.8 and 1.12.2 versions
+          wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./v1_8_R3/libs/craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
+          wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.12.2.jar -O ./v1_12_R1/libs/craftbukkit-1.12.2-R0.1-SNAPSHOT.jar
 
       - name: Build
         run: mvn -V -B clean package --file pom.xml
