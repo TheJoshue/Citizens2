@@ -8,12 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     if: "github.actor != 'dependabot[bot]'"
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
+
       - name: Set up JDK 17
-        uses: actions/setup-java@main
+        uses: actions/setup-java@v3
         with:
           java-version: 17
           distribution: temurin
+
+      # Ensure the 'libs/' folder exists
+      - name: Create libs folder
+        run: mkdir -p ./v1_8_R3/libs
+
+      # Add CraftBukkit jar to libs folder
+      - name: Download CraftBukkit jar
+        run: wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./v1_8_R3/libs/craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
 
       - name: Build
         run: mvn -V -B clean package --file pom.xml
