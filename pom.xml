@@ -74,7 +74,7 @@
             <id>dev</id>
             <modules>
                 <module>main</module>
-                <module>v1_21_R1</module>
+                <module>v1_20_R4</module>
                 <module>dist</module>
             </modules>
         </profile>
