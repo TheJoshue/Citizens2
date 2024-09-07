@@ -1,6 +1,6 @@
 name: Build Citizens
 
-on: [ push ]
+on: [push]
 
 jobs:
   build:
@@ -16,13 +16,19 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      # Ensure the 'libs/' folder exists
-      - name: Create libs folder
-        run: mkdir -p ./v1_8_R3/libs
-
-      # Add CraftBukkit jar to libs folder
+      # Download the CraftBukkit jar
       - name: Download CraftBukkit jar
-        run: wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./v1_8_R3/libs/craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
+        run: wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar -O ./craftbukkit-1.8.8-R0.1-SNAPSHOT.jar
+
+      # Manually install CraftBukkit into the local Maven repository
+      - name: Install CraftBukkit in local repo
+        run: |
+          mvn install:install-file \
+          -Dfile=./craftbukkit-1.8.8-R0.1-SNAPSHOT.jar \
+          -DgroupId=org.bukkit \
+          -DartifactId=craftbukkit \
+          -Dversion=1.8.8-R0.1-SNAPSHOT \
+          -Dpackaging=jar
 
       - name: Build
         run: mvn -V -B clean package --file pom.xml
