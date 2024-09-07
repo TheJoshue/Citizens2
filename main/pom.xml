@@ -50,10 +50,8 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
             <version>${craftbukkit.version}</version>
-            <!--type>jar</type>
-            <scope>provided</scope-->
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/spigot-${craftbukkit.version}.jar</systemPath>
+            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>it.unimi.dsi</groupId>
